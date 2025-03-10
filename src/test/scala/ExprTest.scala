@@ -45,13 +45,13 @@ class ExprTest:
   @Test def testShowAdd(): Unit = {
     val firstValue = Expr.Literal(4)
     val secondValue = Expr.Literal(5)
-    assertEquals("4+5", show(Expr.Add(firstValue, secondValue)))
+    assertEquals("(4+5)", show(Expr.Add(firstValue, secondValue)))
   }
 
   @Test def testShowMultiply(): Unit = {
     val firstValue = Expr.Literal(4)
     val secondValue = Expr.Literal(5)
-    assertEquals("4*5", show(Expr.Multiply(firstValue, secondValue)))
+    assertEquals("(4*5)", show(Expr.Multiply(firstValue, secondValue)))
   }
 
   @Test def testComputeComplexExpression(): Unit = {
@@ -65,6 +65,6 @@ class ExprTest:
       ),
       Expr.Literal(2)
     )
-    assertEquals("4*5*5+2", show(expr))
+    assertEquals("(((4*5)*5)+2)", show(expr))
     assertEquals(102, evaluate(expr))
   }
