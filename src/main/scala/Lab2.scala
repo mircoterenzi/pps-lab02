@@ -115,3 +115,4 @@ object Lab2 extends App :
   // Task 4
   enum Expr:
     case Literal(value: Int)
+    case Add(first: Expr, second: Expr)

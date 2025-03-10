@@ -7,3 +7,8 @@ class ExprTest:
     val literal = Expr.Literal(2)
     assertNotNull(literal)
   }
+
+  @Test def testCreateAddExpr(): Unit = {
+    val literal = Expr.Literal(2)
+    assertNotNull(Expr.Add(literal, literal))
+  }
