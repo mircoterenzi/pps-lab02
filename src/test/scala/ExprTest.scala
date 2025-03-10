@@ -16,3 +16,8 @@ class ExprTest:
     val literal = Expr.Literal(2)
     assertNotNull(Expr.Multiply(literal, literal))
   }
+
+  @Test def testCreateComplexExpression(): Unit = {
+    val literal = Expr.Literal(2)
+    assertNotNull(Expr.Multiply(Expr.Add(literal, literal), Expr.Multiply(literal, literal)))
+  }
