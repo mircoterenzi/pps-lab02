@@ -11,3 +11,8 @@ class ExprTest:
     val literal = Expr.Literal(2)
     assertNotNull(Expr.Add(literal, literal))
   }
+
+  @Test def testCreateMultiplyExpr(): Unit = {
+    val literal = Expr.Literal(2)
+    assertNotNull(Expr.Multiply(literal, literal))
+  }
