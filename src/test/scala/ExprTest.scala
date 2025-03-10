@@ -4,8 +4,7 @@ import org.junit.Assert.*
 
 class ExprTest:
   @Test def testCreateLiteral(): Unit = {
-    val literal = Expr.Literal(2)
-    assertNotNull(literal)
+    assertNotNull(Expr.Literal(2))
   }
 
   @Test def testCreateAddExpr(): Unit = {
