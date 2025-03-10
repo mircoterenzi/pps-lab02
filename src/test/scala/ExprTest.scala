@@ -31,3 +31,9 @@ class ExprTest:
     val secondValue = Expr.Literal(5)
     assertEquals(evaluate(firstValue) + evaluate(secondValue), evaluate(Expr.Add(firstValue, secondValue)))
   }
+
+  @Test def testEvaluateMultiplyReturnTimesValues(): Unit = {
+    val firstValue = Expr.Literal(2)
+    val secondValue = Expr.Literal(5)
+    assertEquals(evaluate(firstValue) * evaluate(secondValue), evaluate(Expr.Multiply(firstValue, secondValue)))
+  }
