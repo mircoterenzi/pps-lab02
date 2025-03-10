@@ -25,3 +25,9 @@ class ExprTest:
   @Test def testEvaluateLiteralReturnValue(): Unit = {
     assertEquals(2, evaluate(Expr.Literal(2)))
   }
+
+  @Test def testEvaluateAddReturnSumOfValues(): Unit = {
+    val firstValue = Expr.Literal(2)
+    val secondValue = Expr.Literal(5)
+    assertEquals(evaluate(firstValue) + evaluate(secondValue), evaluate(Expr.Add(firstValue, secondValue)))
+  }

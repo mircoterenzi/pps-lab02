@@ -120,5 +120,5 @@ object Lab2 extends App :
 
   def evaluate(expr: Expr): Int = expr match
     case Expr.Literal(v) => v
-    case Expr.Add(f, s) => ???
+    case Expr.Add(f, s) => evaluate(f) + evaluate(s)
     case Expr.Multiply(f, s) => ???
