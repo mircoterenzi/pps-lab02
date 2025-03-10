@@ -1,4 +1,4 @@
-import Lab2.{Expr, evaluate}
+import Lab2.{Expr, evaluate, show}
 import org.junit.*
 import org.junit.Assert.*
 
@@ -36,4 +36,8 @@ class ExprTest:
     val firstValue = Expr.Literal(4)
     val secondValue = Expr.Literal(5)
     assertEquals(4 * 5, evaluate(Expr.Multiply(firstValue, secondValue)))
+  }
+
+  @Test def testShowLiteral(): Unit = {
+    assertEquals("10", show(Expr.Literal(10)))
   }
