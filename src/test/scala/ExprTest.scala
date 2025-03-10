@@ -29,11 +29,11 @@ class ExprTest:
   @Test def testEvaluateAddReturnSumOfValues(): Unit = {
     val firstValue = Expr.Literal(2)
     val secondValue = Expr.Literal(5)
-    assertEquals(evaluate(firstValue) + evaluate(secondValue), evaluate(Expr.Add(firstValue, secondValue)))
+    assertEquals(2 + 5, evaluate(Expr.Add(firstValue, secondValue)))
   }
 
   @Test def testEvaluateMultiplyReturnTimesValues(): Unit = {
-    val firstValue = Expr.Literal(2)
+    val firstValue = Expr.Literal(4)
     val secondValue = Expr.Literal(5)
-    assertEquals(evaluate(firstValue) * evaluate(secondValue), evaluate(Expr.Multiply(firstValue, secondValue)))
+    assertEquals(4 * 5, evaluate(Expr.Multiply(firstValue, secondValue)))
   }
