@@ -125,5 +125,5 @@ object Lab2 extends App :
 
   def show(expr: Expr): String = expr match
     case Expr.Literal(v) => s"$v"
-    case Expr.Add(f, s) => ???
+    case Expr.Add(f, s) => show(f) + "+" + show(s)
     case Expr.Multiply(f, s) => ???

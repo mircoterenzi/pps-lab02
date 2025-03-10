@@ -41,3 +41,9 @@ class ExprTest:
   @Test def testShowLiteral(): Unit = {
     assertEquals("10", show(Expr.Literal(10)))
   }
+
+  @Test def testShowAdd(): Unit = {
+    val firstValue = Expr.Literal(4)
+    val secondValue = Expr.Literal(5)
+    assertEquals("4+5", show(Expr.Add(firstValue, secondValue)))
+  }
