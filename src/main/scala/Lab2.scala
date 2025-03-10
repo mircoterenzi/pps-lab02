@@ -111,3 +111,7 @@ object Lab2 extends App :
       case _ => _reverse(n / 10, (res * 10) + (n % 10))
     _reverse(n, 0)
   printFormatted(54321, reverseNumber(12345))
+
+  // Task 4
+  enum Expr:
+    case Literal(value: Int)
