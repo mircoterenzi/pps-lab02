@@ -84,3 +84,24 @@ object Tasks extends App :
     "composeForThree(_ + \"!\", _.toString, _ * 2)(3) = " +
     composeForThree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3)
   )
+
+  // Task 3
+  def power(base: Double, exponent: Int): Double = exponent match
+    case 0 => 1
+    case _ => base * power(base, exponent - 1)
+  def powerTail(base: Double, exponent: Int): Double =
+    @annotation.tailrec
+    def _power(exponent: Int, tot: Double): Double = exponent match
+      case 0 => tot
+      case _ => _power(exponent - 1, base * tot)
+    _power(exponent, 1)
+  println(s"power(2, 3) = ${power(2, 3)}; power(5, 2) = ${power(5, 2)}")
+  println(s"powerTail(2, 3) = ${powerTail(2, 3)}; powerTail(5, 2) = ${powerTail(5, 2)}")
+
+  def reverseNumber(n: Int): Int =
+    @annotation.tailrec
+    def _reverse(n: Int, res: Int): Int = n match
+      case 0 => res
+      case _ => _reverse(n / 10, (res * 10) + (n % 10))
+    _reverse(n, 0)
+  println("reverseNumber(12345) = " + reverseNumber(12345))
