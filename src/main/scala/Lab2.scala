@@ -117,3 +117,8 @@ object Lab2 extends App :
     case Literal(value: Int)
     case Add(first: Expr, second: Expr)
     case Multiply(first: Expr, second: Expr)
+
+  def evaluate(expr: Expr): Int = expr match
+    case Expr.Literal(v) => v
+    case Expr.Add(f, s) => ???
+    case Expr.Multiply(f, s) => ???

@@ -1,4 +1,4 @@
-import Lab2.Expr
+import Lab2.{Expr, evaluate}
 import org.junit.*
 import org.junit.Assert.*
 
@@ -20,4 +20,8 @@ class ExprTest:
   @Test def testCreateComplexExpression(): Unit = {
     val literal = Expr.Literal(2)
     assertNotNull(Expr.Multiply(Expr.Add(literal, literal), Expr.Multiply(literal, literal)))
+  }
+
+  @Test def testEvaluateLiteralReturnValue(): Unit = {
+    assertEquals(2, evaluate(Expr.Literal(2)))
   }
