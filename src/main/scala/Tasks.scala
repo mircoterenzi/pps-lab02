@@ -1,6 +1,6 @@
 object Tasks extends App :
 
-  def printFormatted[X](expected: X, got: X) = println(s"expected: ${expected} - got: ${got}")
+  def printFormatted[X](expected: X, got: X) = println(s"expected: $expected - got: $got")
 
   // Task 1, Svolto da solo
   val hello: String = "Hello, Scala"
@@ -82,7 +82,7 @@ object Tasks extends App :
   def composeGen[A,B,C] (f: B => C, g: A => B): A  => C = x => f(g(x))
   // Signature composeGen = (f: B => C, g: A => B): A  => C
   printFormatted(compose(_ - 1, _ * 2)(5), composeGen[Int, Int, Int](_ - 1, _ * 2)(5))
-  printFormatted("Hello, Scala", composeGen[String, String, String](_ concat "Scala", _ concat ", ")("Hello"))
+  printFormatted("Hello, Scala", composeGen[String, String, String](_ + "Scala", _ + ", ")("Hello"))
 
   def composeThree[A,B,C,D](f: C => D, g: B => C, h: A => B): A => D = x => f(g(h(x)))
   def composeForThree[A,B,C,D](f: C => D, g: B => C, h: A => B): A => D = composeGen(f, composeGen(g, h))
