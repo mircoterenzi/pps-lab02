@@ -1,4 +1,4 @@
-object Tasks extends App :
+object Lab2 extends App :
 
   def printFormatted[X](expected: X, got: X) = println(s"expected: $expected - got: $got")
 
