@@ -75,6 +75,6 @@ object Optionals:
      * @tparam B the type of the result of the function
      * @return optional if the result of applying the function to the value returns true, otherwise Empty
      */
-    def filter[A, B](optional: Optional[A], f: A => B): Optional[B] = optional match
+    def filter[A, B](optional: Optional[A], f: A => Boolean): Optional[A] = optional match
       case Empty() => Empty()
       case Maybe(value) => Empty()
