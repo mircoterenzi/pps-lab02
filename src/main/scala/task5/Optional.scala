@@ -77,4 +77,6 @@ object Optionals:
      */
     def filter[A, B](optional: Optional[A], f: A => Boolean): Optional[A] = optional match
       case Empty() => Empty()
-      case Maybe(value) => Empty()
+      case Maybe(value) => f(value) match
+        case false => Empty()
+        case true => Maybe(value)

@@ -47,3 +47,8 @@ class OptionalTest:
     val nonEmpty = Optional.Maybe(0)
     assertEquals(Optional.Empty(), Optional.filter(nonEmpty, _ == 2))
   }
+
+  @Test def filterShouldReturnMaybeIfFunctionResultIsTrue(): Unit = {
+    val nonEmpty = Optional.Maybe(0)
+    assertEquals(nonEmpty, Optional.filter(nonEmpty, _ < 2))
+  }
