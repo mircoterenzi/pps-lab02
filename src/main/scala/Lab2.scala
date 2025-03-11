@@ -2,7 +2,7 @@ object Lab2 extends App :
 
   def printFormatted[X](expected: X, got: X) = println(s"expected: $expected - got: $got")
 
-  // Task 1, Svolto da solo
+  // Task 1, Svolto con Giangiulli Chiara e Shtini Dilaver (prima consegna)
   val hello: String = "Hello, Scala"
   println(hello)
 
@@ -91,7 +91,7 @@ object Lab2 extends App :
     composeForThree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3)
   )
 
-  // Task 3
+  // Task 3, Svolto da solo
   def power(base: Double, exponent: Int): Double = exponent match
     case 0 => 1
     case _ => base * power(base, exponent - 1)
@@ -112,7 +112,8 @@ object Lab2 extends App :
     _reverse(n, 0)
   printFormatted(54321, reverseNumber(12345))
 
-  // Task 4
+  // Task 4, Svolto da solo
+  // Test: https://github.com/mircoterenzi/pps-lab02/blob/main/src/test/scala/ExprTest.scala
   enum Expr:
     case Literal(value: Int)
     case Add(first: Expr, second: Expr)
@@ -127,3 +128,7 @@ object Lab2 extends App :
     case Expr.Literal(v) => s"$v"
     case Expr.Add(f, s) => "(" + show(f) + "+" + show(s) + ")"
     case Expr.Multiply(f, s) => "(" + show(f)  + "*" + show(s) + ")"
+
+  // Task 5, Svolto da solo
+  // Test: https://github.com/mircoterenzi/pps-lab02/blob/main/src/test/scala/task5/OptionalTest.scala
+  // Class: https://github.com/mircoterenzi/pps-lab02/blob/main/src/main/scala/task5/Optional.scala
