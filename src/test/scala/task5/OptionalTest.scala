@@ -42,3 +42,8 @@ class OptionalTest:
     val empty = Optional.Empty()
     assertEquals(Optional.Empty(), Optional.filter(empty, _ == 2))
   }
+
+  @Test def filterShouldReturnEmptyWhenFunctionResultIsFalse(): Unit = {
+    val nonEmpty = Optional.Maybe(0)
+    assertEquals(Optional.Empty(), Optional.filter(nonEmpty, _ == 2))
+  }
