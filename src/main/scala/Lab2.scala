@@ -1,6 +1,6 @@
 object Lab2 extends App :
 
-  def printFormatted[X](expected: X, got: X) = println(s"expected: $expected - got: $got")
+  def printFormatted[X](expected: X, actual: X) = println(s"expected: $expected - got: $actual")
 
   // Task 1, Svolto con Giangiulli Chiara e Shtini Dilaver (prima consegna)
   val hello: String = "Hello, Scala"
@@ -38,19 +38,19 @@ object Lab2 extends App :
   printFormatted(2.0, divCurried2(8)(4))
 
   // Task 2, Svolto da solo
-  val posLambda: Int => String =
+  val pos1: Int => String =
     case n if n >= 0 => "positive"
     case _ => "negative"
-  def posMethod: Int => String =
+  def pos2: Int => String =
     case n if n >= 0 => "positive"
     case _ => "negative"
 
   // Type neg = (String => Boolean) => String => Boolean
-  val negLambda: (String => Boolean) => String => Boolean = f => x => !f(x)
-  def negMethod(f: String => Boolean): String => Boolean = x => !f(x)
+  val neg1: (String => Boolean) => String => Boolean = f => x => !f(x)
+  def neg2(f: String => Boolean): String => Boolean = x => !f(x)
   val empty: String => Boolean = _ == ""
   // type notEmpty = String => Boolean
-  val notEmpty = negLambda(empty)
+  val notEmpty = neg1(empty)
   printFormatted(true, notEmpty("foo"))
   printFormatted(false, notEmpty(""))
   printFormatted(true, notEmpty("foo") && !notEmpty(""))
@@ -85,10 +85,10 @@ object Lab2 extends App :
   printFormatted("Hello, Scala", composeGen[String, String, String](_ + "Scala", _ + ", ")("Hello"))
 
   def composeThree[A,B,C,D](f: C => D, g: B => C, h: A => B): A => D = x => f(g(h(x)))
-  def composeForThree[A,B,C,D](f: C => D, g: B => C, h: A => B): A => D = composeGen(f, composeGen(g, h))
+  def composeThree2[A,B,C,D](f: C => D, g: B => C, h: A => B): A => D = composeGen(f, composeGen(g, h))
   printFormatted(
     composeThree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3),
-    composeForThree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3)
+    composeThree2[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3)
   )
 
   // Task 3, Svolto da solo
