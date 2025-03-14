@@ -46,8 +46,8 @@ object Lab2 extends App :
     case _ => "negative"
 
   // Type neg = (String => Boolean) => String => Boolean
-  val neg1: (String => Boolean) => String => Boolean = f => x => !f(x)
-  def neg2(f: String => Boolean): String => Boolean = x => !f(x)
+  val neg1: (String => Boolean) => String => Boolean = f => !f(_)
+  def neg2(f: String => Boolean): String => Boolean = !f(_)
   val empty: String => Boolean = _ == ""
   // type notEmpty = String => Boolean
   val notEmpty = neg1(empty)
@@ -97,9 +97,9 @@ object Lab2 extends App :
     case _ => base * power(base, exponent - 1)
   def powerTail(base: Double, exponent: Int): Double =
     @annotation.tailrec
-    def _power(exponent: Int, tot: Double): Double = exponent match
-      case 0 => tot
-      case _ => _power(exponent - 1, base * tot)
+    def _power(exponent: Int, acc: Double): Double = exponent match
+      case 0 => acc
+      case _ => _power(exponent - 1, base * acc)
     _power(exponent, 1)
   printFormatted(power(2, 3), powerTail(2, 3))
   printFormatted(power(5, 2), powerTail(5, 2))
